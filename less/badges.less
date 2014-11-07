@@ -1,0 +1,179 @@
+//
+// Badges
+// --------------------------------------------------
+
+@badge-arrow-width: ((@badge-font-size / 2) + @badge-padding-vertical);
+@badge-arrow-border-width: ((@badge-font-size / 2) + @badge-padding-vertical + @badge-border-width);
+
+// Base class
+.badge {
+  display: inline-block;
+  position: relative;
+  margin-right: @badge-padding-horizontal;
+  padding: @badge-padding-vertical 0 @badge-padding-vertical @badge-padding-horizontal;
+  font-size: @badge-font-size;
+  font-weight: @badge-font-weight;
+  line-height: @badge-line-height;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  color: @badge-color;
+  background-color: @badge-bg;
+  border: @badge-border-width solid @badge-bg;
+  border-radius: @badge-border-radius;
+  .transition(~'background-color .3s linear, border-color .3s linear');
+  &:before,
+  &:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+    .transition(~'background-color .3s linear, border-color .3s linear');
+    // edge jagged on Firefox
+    -moz-transform: scale(.9999);
+  }
+  &:before {
+    right: ((@badge-arrow-border-width + @badge-border-width) * -1);
+    top: (@badge-border-width * -1);
+    border-width: @badge-arrow-border-width;
+    border-right-width: 0;
+    border-left-color: @badge-bg;
+  }
+  &:after {
+    left: 100%;
+    top: 0;
+    border-width: @badge-arrow-width;
+    border-right-width: 0;
+    border-left-color: @badge-bg;
+  }
+  // Empty badges collapse automatically (not available in IE8)
+  &:empty {
+    display: none;
+  }
+  // Quick fix for badges in buttons
+  .btn & {
+    top: (@badge-border-width * -2);
+    margin: (@badge-padding-vertical * -1) (@badge-border-width * 2) (@badge-padding-vertical * -1) (@badge-padding-horizontal - 1);
+    &.intrusive {
+      margin-left: auto;
+      margin-right: (@badge-padding-horizontal + @badge-arrow-border-width - 1);
+    }
+    &.clubby {
+      margin-left: (@badge-padding-horizontal - 1);
+      margin-right: (@badge-padding-horizontal + @badge-arrow-border-width - 1);
+    }
+    &.boundalies {
+      margin-left: auto;
+      margin-right: (@badge-padding-horizontal + (@badge-border-width * 2) + 1);
+    }
+  }
+  .btn-sm &,
+  .btn-xs & {
+    top: (@badge-border-width * -1);
+    font-size: @badge-font-size-small;
+    &:before {
+      right: ((@badge-arrow-border-width + @badge-border-width - (@badge-font-size - @badge-font-size-small)) * -1);
+      border-top-width: (@badge-arrow-border-width - ((@badge-font-size - @badge-font-size-small) / 2));
+      border-bottom-width: (@badge-arrow-border-width - ((@badge-font-size - @badge-font-size-small) / 2));
+      border-left-width: (@badge-arrow-border-width - (@badge-font-size - @badge-font-size-small));
+    }
+    &:after {
+      border-top-width: (@badge-arrow-width - ((@badge-font-size - @badge-font-size-small) / 2));
+      border-bottom-width: (@badge-arrow-width - ((@badge-font-size - @badge-font-size-small) / 2));
+      border-left-width: (@badge-arrow-width - (@badge-font-size - @badge-font-size-small));
+    }
+  }
+  .btn-xs & {
+    margin-right: (@padding-xs-horizontal + 1);
+  }
+  // Hover state, but only for links
+  a&,
+  &[href] {
+    &:hover,
+    &:focus {
+      color: @badge-link-hover-color;
+      background-color: @badge-link-hover-bg;
+      border-color: darken(@badge-link-hover-color, 10%);
+      text-decoration: none;
+      cursor: pointer;
+      &:before {
+        border-left-color: darken(@badge-link-hover-color, 10%);
+      }
+      &:after {
+        border-left-color: @badge-link-hover-bg;
+      }
+    }
+    &:active,
+    &:focus:active,
+    &.focus:active {
+      color: @badge-color;
+      background-color: @badge-bg;
+      border-color: @badge-bg;
+      .transition(~'color .15s ease-out, background-color .15s ease-out, border-color .15s ease-out');
+      &:before,
+      &:after {
+        border-left-color: @badge-bg;
+        .transition(~'border-color .15s ease-out');
+      }
+    }
+    &[disabled],
+    &.disabled,
+    fieldset[disabled] & {
+      color: @input-bg-disabled;
+      background-color: @gray-light;
+      border-color: @gray-light;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active,
+      &:hover:active {
+        color: @input-bg-disabled;
+        background-color: @btn-link-disabled-color;
+        border-color: @btn-link-disabled-color;
+        &:before,
+        &:after {
+          border-left-color: @btn-link-disabled-color;
+        }
+      }
+      &:before,
+      &:after {
+        border-left-color: @btn-link-disabled-color;
+      }
+    }
+  }
+  .btn-link:disabled &,
+  .btn-link.disabled &,
+  fieldset[disabled] .btn-link & {
+    color: @input-bg-disabled;
+    background-color: @gray-light;
+    border-color: @gray-light;
+    &:before,
+    &:after {
+      border-left-color: @btn-link-disabled-color;
+    }
+  }
+  // Account for badges in navs
+  a.list-group-item.active > &,
+  .nav-pills > .active > a > & {
+    color: #fff;
+    background-color: @badge-active-color;
+    border-color: @badge-active-color;
+    &:before,
+    &:after {
+      border-left-color: @badge-active-color;
+    }
+  }
+  .nav-pills > li > a > & {
+    margin-left: 3px;
+    color: #fff;
+    background-color: @badge-active-color;
+    border-color: @badge-active-color;
+    &:before,
+    &:after {
+      border-left-color: @badge-active-color;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+// Labels
+
+.label-variant(@background; @color: #fff;) {
+  color: @color;
+  background-color: @background;
+  border: 1px solid @background;
+  .transition(~'background-color .35s linear, border-color .35s linear');
+  &[href] {
+    &:hover,
+    &:focus {
+      color: @background;
+      background-color: lighten(@background, 35%);
+      border-color: darken(@background, 10%);
+    }
+    &:active,
+    &:focus:active,
+    &.focus:active {
+      color: @color;
+      background-color: @background;
+      border-color: @background;
+      .transition(~'color .15s ease-out, background-color .15s ease-out, border-color .15s ease-out');
+    }
+  }
+  .btn:hover & ,
+  .btn.focus:hover & ,
+  .btn.active:hover & {
+    color: @background;
+    background-color: @color;
+    border-color: darken(@background, 10%);
+  }
+  .btn:focus:hover & ,
+  .btn-link:hover & ,
+  .btn-link.focus:hover & ,
+  .btn-link.active:hover & {
+    color: @color;
+    background-color: @background;
+    border-color: @background;
+    .transition(none);
+  }
+  .btn.disabled & ,
+  .btn[disabled] & ,
+  fieldset[disabled] .btn & {
+    color: @input-bg-disabled;
+    background-color: @btn-link-disabled-color;
+    border-color: @btn-link-disabled-color;
+  }
+}

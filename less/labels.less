@@ -1,0 +1,81 @@
+//
+// Labels
+// --------------------------------------------------
+
+.label {
+  @label-padding-vertical: (@padding-small-vertical - 3);
+  @label-padding-horizontal: (@padding-small-horizontal - 3);
+  display: inline-block;
+  padding: @label-padding-vertical @label-padding-horizontal;
+  font-size: @label-font-size;
+  font-weight: @label-font-weight;
+  line-height: 1;
+  color: @label-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: @label-border-radius;
+  text-decoration: none;
+  // Add hover effects, but only for links
+  a& {
+    &:hover,
+    &:focus {
+      color: @label-link-hover-color;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    &[disabled],
+    &.disabled,
+    fieldset[disabled] & {
+      color: @input-bg-disabled;
+      background-color: @gray-light;
+      border-color: @gray-light;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active,
+      &:hover:active {
+        color: @input-bg-disabled;
+        background-color: @btn-link-disabled-color;
+        border-color: @btn-link-disabled-color;
+      }
+    }
+  }
+
+  // Empty labels collapse automatically (not available in IE8)
+  &:empty {
+    display: none;
+  }
+
+  // Quick fix for labels in buttons
+  .btn & {
+    position: relative;
+    top: -2px;
+    margin: (@label-padding-vertical * -1) 0 (@label-padding-vertical * -1) (@label-padding-horizontal - 1);
+    &.intrusive {
+      margin-left: auto;
+      margin-right: (@label-padding-horizontal - 1);
+    }
+    &.clubby {
+      margin-left: (@label-padding-horizontal - 1);
+      margin-right: (@label-padding-horizontal - 1);
+    }
+    &.boundalies {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .btn-sm &,
+  .btn-xs & {
+    top: -1px;
+  }
+}
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+.label-default {.label-variant(@label-default-bg);}
+.label-primary {.label-variant(@label-primary-bg);}
+.label-success {.label-variant(@label-success-bg);}
+.label-info {.label-variant(@label-info-bg);}
+.label-warning {.label-variant(@label-warning-bg);}
+.label-danger {.label-variant(@label-danger-bg);}

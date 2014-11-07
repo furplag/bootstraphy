@@ -1,0 +1,132 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.button-variant(@color; @background; @border; @hoverColor: #fff;) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  text-decoration: none;
+  .transition(~'background-color .3s linear, border-color .3s linear');
+  &:hover,
+  &.focus:hover,
+  &.active:hover {
+    color: @hoverColor;
+    background-color: @color;
+    border-color: darken(@border, 10%);
+  }
+  &:focus,
+  &.focus,
+  &.focus:focus {
+    color: @color;
+    background-color: @background;
+    border: 3px double @border;
+  }
+  &:active,
+  &:focus:active,
+  &.focus:active {
+    color: @hoverColor;
+    background-color: @color;
+    border: 3px solid darken(@border, 10%);
+    .transition(~'color .15s ease-out, background-color .15s ease-out, border-color .15s ease-out');
+  }
+  &.active {
+    color: @color;
+    background-color: @background;
+    border: 3px solid @border;
+    &:focus {
+      color: @color;
+      background-color: lighten(@border, 35%);
+      border: 3px double @border;
+    }
+  }
+  .open > .dropdown-toggle & {
+    color: @hoverColor;
+    background-color: lighten(@border, 10%);
+    border-color: @border;
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle & {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    color: @btn-link-disabled-color;
+    background-color: @input-bg-disabled;
+    border-color: @btn-link-disabled-color;
+  }
+  .badge {
+    color: #fff;
+    background-color: @color;
+    border-color: @color;
+    &:before,
+    &:after {
+      border-left-color: @color;
+    }
+  }
+  &:hover,
+  &.focus:hover,
+  &.active:hover {
+    .badge {
+      color: @color;
+      background-color: #fff;
+      border-color: darken(@color, 10%);
+      &:before {
+        border-left-color: darken(@color, 10%);
+      }
+      &:after {
+        border-left-color: #fff;
+      }
+    }
+  }
+  &:focus:hover {
+    .badge {
+      color: #fff;
+      background-color: @color;
+      border-color: @color;
+      &:before,
+      &:after {
+        border-left-color: @color;
+      }
+    }
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    .badge {
+      color: @input-bg-disabled;
+      background-color: @btn-link-disabled-color;
+      border-color: @btn-link-disabled-color;
+      &:before,
+      &:after {
+        border-left-color: @btn-link-disabled-color;
+      }
+    }
+  }
+}
+
+
+// Button sizes
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  line-height: @line-height;
+  border-radius: @border-radius;
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    padding: (@padding-vertical - 2) (@padding-horizontal - 2);
+  }
+  &.btn-link {
+    padding: @padding-vertical @padding-horizontal;
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      color: @btn-link-disabled-color;
+    }
+  }
+}

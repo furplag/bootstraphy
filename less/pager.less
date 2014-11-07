@@ -1,0 +1,167 @@
+//
+// Pager pagination
+// --------------------------------------------------
+
+
+.pager {
+  padding-left: 0;
+  margin: @line-height-computed 0;
+  list-style: none;
+  text-align: center;
+  &:extend(.clearfix all);
+  li {
+    display: inline;
+    > a,
+    > span {
+      display: inline-block;
+      padding: @padding-base-vertical @padding-base-horizontal;
+      background-color: @pager-bg;
+      border: 1px solid @pager-border;
+      border-radius: @pager-border-radius;
+      text-decoration: none;
+      .transition(~'background-color .3s linear, border-color .3s linear');
+    }
+    > a:hover,
+    > a:focus {
+      color: @pagination-hover-color;
+      background-color: @pager-hover-bg;
+      border-color: darken(@pager-border, 10%);
+    }
+    &:first-child {
+      > a,
+      > span {
+        position: relative;
+        &:before,
+        &:after {
+          position: absolute;
+          display: block;
+          width: 0;
+          height: 0;
+          content: ' ';
+          // edge jagged on Firefox
+          -moz-transform: scale(.9999);
+          .transition(~'border-color .3s linear');
+        }
+        &:before {
+          top: -1px;
+          left: ((@padding-base-horizontal * -1) - 1);
+          border: (floor((@font-size-base * @line-height-base / 2)) + @padding-base-vertical + 1) solid transparent;
+          border-right-color: @pager-border;
+          border-left-width: 0;
+          border-right-width: @padding-base-horizontal;
+        }
+        &:after {
+          top: 0;
+          left: 0;
+          border: (floor((@font-size-base * @line-height-base / 2)) + @padding-base-vertical) solid @pager-border;
+          border-right-color: @pager-bg;
+          border-left-width: 0;
+          border-right-width: @padding-base-horizontal;
+        }
+        &:hover:before,
+        &:focus:before {
+          border-right-color: darken(@pager-border, 10%);
+        }
+        &:hover:after,
+        &:focus:after {
+          border-color: darken(@pager-border, 10%);
+          border-right-color: @pager-hover-bg;
+        }
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        position: relative;
+        &:before,
+        &:after {
+          position: absolute;
+          display: block;
+          width: 0;
+          height: 0;
+          content: ' ';
+          .transition(~'border-color .3s linear');
+          // edge jagged on Firefox
+          -moz-transform: scale(.9999);
+        }
+        &:before {
+          top: -1px;
+          right: ((@padding-base-horizontal * -1) - 1);
+          border: (floor((@font-size-base * @line-height-base / 2)) + @padding-base-vertical + 1) solid transparent;
+          border-left-color: @pager-border;
+          border-right-width: 0;
+          border-left-width: @padding-base-horizontal;
+        }
+        &:after {
+          top: 0;
+          right: 0;
+          border: (floor((@font-size-base * @line-height-base / 2)) + @padding-base-vertical) solid @pager-border;
+          border-left-color: @pager-bg;
+          border-right-width: 0;
+          border-left-width: @padding-base-horizontal;
+        }
+        &:hover:before,
+        &:focus:before {
+          border-left-color: darken(@pager-border, 10%);
+        }
+        &:hover:after,
+        &:focus:after {
+          border-color: darken(@pager-border, 10%);
+          border-left-color: @pager-hover-bg;
+        }
+      }
+    }
+  }
+
+  .next {
+    > a,
+    > span {
+      float: right;
+      margin-right: @padding-base-horizontal;
+    }
+  }
+
+  .previous {
+    > a,
+    > span {
+      float: left;
+      margin-left: @padding-base-horizontal;
+    }
+  }
+
+  .disabled {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
+      color: @pager-disabled-color;
+      background-color: @pager-bg;
+      border-color: @pager-border;
+      cursor: not-allowed;
+    }
+    &:first-child > a,
+    &:first-child > span {
+      &:hover:before,
+      &:focus:before {
+        border-right-color: @pager-border;
+      }
+      &:hover:after,
+      &:focus:after {
+        border-color: @pager-border;
+        border-right-color: @pager-bg;
+      }
+    }
+    &:last-child > a,
+    &:last-child > span {
+      &:hover:before,
+      &:focus:before {
+        border-left-color: @pager-border;
+      }
+      &:hover:after,
+      &:focus:after {
+        border-color: @pager-border;
+        border-left-color: @pager-bg;
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+@breadcrumb-arrow-vertical: floor(((@line-height-computed / 2) + @breadcrumb-padding-vertical));
+@breadcrumb-arrow-horizontal: floor((@breadcrumb-padding-horizontal / 2));
+.breadcrumb {
+  padding: 0;
+  margin-bottom: @line-height-computed;
+  font-size: 0;
+  list-style: none;
+  background-color: @breadcrumb-bg;
+  border-radius: @border-radius-base;
+  > li {
+    position: relative;
+    display: inline-block;
+    padding: (@breadcrumb-padding-vertical - 1) 0;
+    padding-left: @breadcrumb-arrow-horizontal;
+    font-size: @font-size-base;
+    color: @breadcrumb-color;
+    border: 1px solid @breadcrumb-color;
+    > a {
+      display: inline-block;
+      padding: (@breadcrumb-padding-vertical - 1) 0;
+      padding-left: (@breadcrumb-arrow-horizontal);
+      margin: (-(@breadcrumb-padding-vertical - 1)) 0;
+      margin-left: -@breadcrumb-arrow-horizontal;
+      color: #fff;
+      background-color: @link-color;
+      .transition(~'color .35s linear, background-color .35s linear');
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        display: inline-block;
+        z-index: 3;
+        width: 0;
+        height: 0;
+        border: 0 solid transparent;
+        border-width: (@breadcrumb-arrow-vertical - 1) 0;
+        border-left-color: @link-color;
+        border-left-width: (@breadcrumb-arrow-horizontal - 1);
+        content: ' ';
+        .transition(~'border-color .35s linear');
+        -moz-transform: scale(.9999);
+      }
+      &:hover,
+      &:focus {
+        color: darken(@link-color, 10%);
+        background-color: lighten(@link-color, 35%);
+        &:after {border-left-color: lighten(@link-color, 35%);}
+      }
+    }
+    &:nth-child(even) > a {
+      @breadcrumb-link-odd: lighten(@link-color, 15%);
+      background-color: @breadcrumb-link-odd;
+      &:after {border-left-color: @breadcrumb-link-odd;}
+      &:hover,
+      &:focus {
+        color: darken(@breadcrumb-link-odd, 10%);
+        background-color: lighten(@breadcrumb-link-odd, 35%);
+        &:after {border-left-color: lighten(@breadcrumb-link-odd, 35%);}
+      }
+    }
+    &.active {
+      color: @breadcrumb-active-color;
+      > a {
+        background-color: @breadcrumb-active-color;
+        &:after {border-left-color: @breadcrumb-active-color;}
+        &:hover,
+        &:focus {
+          color: darken(@breadcrumb-active-color, 10%);
+          background-color: lighten(@breadcrumb-active-color, 35%);
+          &:after {border-left-color: lighten(@breadcrumb-active-color, 35%);}
+        }
+      }
+    }
+    &:before,
+    &:after {
+      position: absolute;
+      z-index: 2;
+      width: 0;
+      height: 0;
+      border: 0 solid transparent;
+      content: ' ';
+      -moz-transform: scale(.9999);
+    }
+    &:before {
+      top: -1px;
+      right: (-(@breadcrumb-arrow-horizontal + 1));
+      border-width: @breadcrumb-arrow-vertical 0;
+      border-left-color: @breadcrumb-color;
+      border-left-width: @breadcrumb-arrow-horizontal;
+    }
+    &:after {
+      top: 0;
+      left: 100%;
+      border-width: (@breadcrumb-arrow-vertical - 1) 0;
+      border-left-color: @breadcrumb-bg;
+      border-left-width: (@breadcrumb-arrow-horizontal - 1);
+    }
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+    &:last-child {
+      border-color: @breadcrumb-bg;
+      > a {
+        display: inline;
+        color: @link-color;
+        background-color: transparent;
+        &:after {border: 0 solid transparent;}
+        &:hover,
+        &:focus {
+          color: @link-hover-color;
+          background-color: transparent;
+        }
+      }
+      &.active > a {
+        color: @breadcrumb-active-color;
+        &:hover, &:focus {color: darken(@breadcrumb-active-color, 10%);}
+      }
+      &:before, &:after {border: 0 solid transparent;}
+      &:before {
+        top: -1px;
+        left: -1px;
+        z-index: 1;
+        width: 1px;
+        height: (@line-height-computed + (@breadcrumb-padding-vertical * 2));
+        background-color: @breadcrumb-color;
+      }
+      &:first-child {
+        &:before {background-color: transparent;}
+      }
+    }
+  }
+}

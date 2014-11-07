@@ -1,0 +1,106 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="msapplication-TileColor" content="#f18d05">
+<meta name="msapplication-TileImage" content="/favicon-144x.png">
+<title>
+  {% if page.url == site.baseurl %}
+    {{ page.title }}
+  {% else %}
+    {{ page.title }} &middot; Bootstraphy
+  {% endif %}
+</title>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!-- Bootstrap core CSS -->
+{% if site.github %}
+<link href="../dist/css/bootstraphy.min.css" rel="stylesheet">
+{% else %}
+<link href="../dist/css/bootstraphy.css" rel="stylesheet">
+{% endif %}
+{% if page.slug == "css" or page.slug == "components" or page.slug == "js" %}
+  <!-- Optional Bootstrap Theme -->
+{% if site.github %}
+  <link href="data:text/css;charset=utf-8," data-href="../dist/css/bootstraphy-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+{% else %}
+  <link href="data:text/css;charset=utf-8," data-href="../dist/css/bootstraphy-theme.css" rel="stylesheet" id="bs-theme-stylesheet">
+{% endif %}
+{% endif %}
+<!-- Documentation extras -->
+{% if site.github %}
+<link href="../assets/css/docs.min.css" rel="stylesheet">
+{% else %}
+<link href="../assets/css/docs.min.css" rel="stylesheet">
+{% endif %}
+<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<link href="http://cdn.furplag-was.me/fonts/bootstraphy/_fontface.css" class="async-web-fonts">
+<link href="http://cdn.furplag-was.me/fonts/robotoslab/_fontface.css" class="async-web-fonts">
+<script>
+(function () {
+  document.documentElement.className += ' wf-standby';
+  var webfonts = document.querySelectorAll('link.async-web-fonts');
+  for (var i = 0, l = webfonts.length; i < l; i++) {
+    webfonts[i].rel = 'stylesheet';
+  }
+  document.documentElement.className = document.documentElement.className.replace('wf-standby', '');
+})();
+</script>
+<script>
+/*
+var _loaded = 0, _wrapper = '_loading';
+WebFontConfig = {
+  custom: {
+      families: ['Roboto Slab:n3,n4,n7', 'NoToS:n3,n4,n7', 'Fantasque Sans Mono:n4,n7', 'Open Sans:n3,n4,n7'],
+      urls: ['http://cdn.furplag-was.me/fonts/bootstraphy/_fontface.css']
+  }
+  , loading: function() {
+    var _e = document.createElement('ul');
+    _e.id = _wrapper;
+    _e.className = _wrapper;
+    for (var i = 0; i < 11; i++) {
+      var _c = document.createElement('li');
+      _c.innerHTML = i > 6 ? '.' : 'Loading'[i];
+      _e.appendChild(_c);
+    }
+    _e.style.top = ~~(window.innerHeight / 2) + 'px';
+    document.body.insertBefore(_e, document.body.childNodes[0]);
+  }
+  , fontactive: function(f,s) {
+    document.getElementById(_wrapper).childNodes[_loaded].className = 'loaded';
+    _loaded++;
+    if (_loaded > 10) {
+      var _e = document.getElementById(_wrapper);
+      if (_e) _e.parentNode.removeChild(_e);
+      document.documentElement.className = document.documentElement.className.replace('wf-standby', '');
+    }
+  }
+  , fontinactive: function(f,s) {
+    document.getElementById(_wrapper).childNodes[_loaded].className = 'failed';
+    _loaded++;
+    if (_loaded > 10) {
+      var _e = document.getElementById(_wrapper);
+      if (_e) _e.parentNode.removeChild(_e);
+      document.documentElement.className = document.documentElement.className.replace('wf-standby', '');
+    }
+  }
+  , timeout: 5000
+};
+document.documentElement.className = document.documentElement.className + ' wf-standby';
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1.5.2/webfont.js';
+  wf.src = '../assets/js/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();*/
+</script>
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn.furplag-was.me/favicon/favicon-152x.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn.furplag-was.me/favicon/favicon-120x.png">
+<link rel="icon" href="https://cdn.furplag-was.me/favicon/favicon.ico">

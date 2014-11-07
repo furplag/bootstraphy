@@ -1,0 +1,91 @@
+//
+// Webfonts for Bootstraphy
+//
+.wf-notos-n3-active,
+.wf-notos-n4-active,
+.wf-notos-n7-active {
+  body {
+    font-family: Verdana, Roboto, 'Droid Sans', NoToS, sans-serif;
+    -ms-font-feature-settings: 'kern' 1;
+    -moz-font-feature-setting: 'kern=1';
+  }
+  &.wf-opensans-n3-active,
+  &.wf-opensans-n4-active,
+  &.wf-opensans-n7-active {
+    body {font-family: 'Open Sans', NoToS, sans-serif;}
+  }
+}
+.wf-fantasquesansmono-n4-active,
+.wf-fantasquesansmono-n7-active {
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: 'Fantasque Sans Mono', 'Osaka－等幅', Osaka-mono, 'メイリオ', Meiryo, monospace;
+  }
+  &.wf-notos-n3-active,
+  &.wf-notos-n4-active,
+  &.wf-notos-n7-active {
+    code,
+    kbd,
+    pre,
+    samp {
+      font-family: 'Fantasque Sans Mono', NoToS, monospace;
+    }
+  }
+}
+.wf-robotoslab-n3-active,
+.wf-robotoslab-n4-active,
+.wf-robotoslab-n7-active {
+  .serif {
+    font-family: 'Roboto Slab', 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'メイリオ', Meiryo, serif;
+  }
+  &.wf-notos-n3-active,
+  &.wf-notos-n4-active,
+  &.wf-notos-n7-active {
+    .serif {
+      font-family: 'Roboto Slab', NoToS, Meiryo, serif;
+    }
+  }
+}
+
+.wf-standby,
+.wf-loading {
+  body {
+    position: relative;
+    overflow:hidden;
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      z-index: 10010;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: @gray-darker;
+      .opacity(.75);
+    }
+    ._loading {
+      width: 100%;
+      position: absolute;
+      z-index: 10020;
+      left: 0;
+      text-align: center;
+      li {
+        display: inline-block;
+        font-size: @font-size-h1;
+        font-family: monospace;
+        font-weight: 700;
+        color: @gray-lighter;
+        .transition(~'color .5s ease-out');
+        &.loaded {
+          color: @brand-success;
+        }
+        &.failed {
+          color: @brand-danger;
+        }
+      }
+    }
+  }
+}
