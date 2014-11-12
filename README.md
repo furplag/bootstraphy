@@ -1,6 +1,10 @@
 bootstraphy
 ===========
 
+[![Build Status](https://travis-ci.org/furplag/bootstraphy.svg?branch=master)](https://travis-ci.org/furplag/bootstraphy)
+[![Dependency Status](https://david-dm.org/furplag/bootstraphy.svg?theme=shields.io)](https://david-dm.org/furplag/bootstraphy)
+[![devDependency Status](https://david-dm.org/furplag/bootstraphy/dev-status.svg?theme=shields.io)](https://david-dm.org/furplag/bootstraphy#info=devDependencies)
+
 customized [Bootstrap](//github.com/twbs/bootstrap) for me.
 
 Author
