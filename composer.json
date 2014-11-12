@@ -1,0 +1,23 @@
+{
+  "name": "furplag/bootstraphy",
+  "description": "customized Bootstrap for me.",
+  "homepage": "https://github.com/furplag/bootstraphy/",
+  "authors": [
+    {
+      "name": "Furplag",
+      "email": "furplag@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/furplag/bootstraphy/issues"
+  },
+  "license": "MIT",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.3.x-dev"
+    }
+  },
+  "replace": {
+    "furplag/bootstraphy": "self.version"
+  }
+}

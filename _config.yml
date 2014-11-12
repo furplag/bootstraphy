@@ -1,0 +1,29 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+
+# Server
+source:           docs
+destination:      _gh_pages
+host:             0.0.0.0
+port:             9001
+baseurl:          /
+url:              https://furplag.github.io/bootstraphy
+encoding:         UTF-8
+
+# Custom vars
+current_version:  3.3.0
+repo:             https://github.com/furplag/bootstraphy
+
+download:
+  source:         https://github.com/furplag/bootstraphy/v3.3.0.zip
+  dist:           https://github.com/furplag/bootstraphy/releases/download/v3.3.0/bootstrap-3.3.0-dist.zip
+  sass:           https://github.com/furplag/bootstraphy/archive/v3.3.0.tar.gz
+cdn:
+  css:            https://furplag-was.me/bootstraphy/3.3.0/bootstraphy.min.css
+  css_theme:      https://furplag-was.me/bootstraphy/3.3.0/bootstraphy-theme.min.css
+  js:             https://furplag-was.me/bootstraphy/3.3.0/bootstraphy.min.js
+

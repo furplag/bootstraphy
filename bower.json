@@ -1,0 +1,33 @@
+{
+  "name": "bootstraphy",
+  "description": "customized Bootstrap for me.",
+  "version": "3.3.0",
+  "homepage": "https://furplag.github.io/bootstraphy/",
+  "main": [
+    "less/bootstraphy.less",
+    "dist/css/bootstraphy.css",
+    "dist/js/bootstraphy.js",
+    "dist/fonts/glyphicons-halflings-regular.eot",
+    "dist/fonts/glyphicons-halflings-regular.svg",
+    "dist/fonts/glyphicons-halflings-regular.ttf",
+    "dist/fonts/glyphicons-halflings-regular.woff"
+  ],
+  "ignore": [
+    "/.*",
+    "_config.yml",
+    "CNAME",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "docs",
+    "js/tests",
+    "test-infra"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.1"
+  },
+  "devDependencies": {
+    "components-webfontloader": "~1.5.2",
+    "html5shiv": "~3.7.2",
+    "respond": "~1.4.2"
+  }
+}
