@@ -56,7 +56,7 @@ module.exports = function (grunt) {
       bower: 'bower_components',
       dist: 'dist',
       docs: 'docs/dist',
-      'docs-bower': 'docs/libs',
+      'docs-bower': 'docs/libs'
     },
 
     jshint: {
