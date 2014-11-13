@@ -53,8 +53,10 @@ module.exports = function (grunt) {
 
     // Task configuration.
     clean: {
+      bower: 'bower_components',
       dist: 'dist',
-      docs: 'docs/dist'
+      docs: 'docs/dist',
+      'docs-bower': 'docs/libs',
     },
 
     jshint: {
@@ -212,8 +214,8 @@ module.exports = function (grunt) {
         csslintrc: 'less/.csslintrc'
       },
       dist: [
-        'dist/css/bootstrap.css',
-        'dist/css/bootstrap-theme.css'
+        'dist/css/<%= pkg.name %>.css',
+        'dist/css/<%= pkg.name %>-theme.css'
       ],
       examples: [
         'docs/examples/**/*.css'
@@ -335,7 +337,7 @@ module.exports = function (grunt) {
         ]
       },
       files: {
-        src: '_gh_pages/**/*.html'
+        src: ['_gh_pages/**/*.html', '!_gh_pages/**/respond-proxy.html']
       }
     },
 
@@ -380,6 +382,45 @@ module.exports = function (grunt) {
     exec: {
       npmUpdate: {
         command: 'npm update'
+      }
+    },
+
+    'bower-install-simple': {
+      options: {
+        color: true,
+        directory: 'bower_components'
+      },
+      docs: {
+        options: {
+          production: false
+        }
+      },
+      prod: {
+        options: {
+          production: true
+        }
+      }
+    },
+
+    bowercopy: {
+      options: {
+        srcPrefix: 'bower_components'
+      },
+      docs: {
+        options: {
+          destPrefix: 'docs/libs'
+        },
+        files: {
+          'js/webfont.js': 'components-webfontloader/webfont.js',
+          'js/html5shiv.min.js': 'html5shiv/dist/html5shiv.min.js',
+          'js/jquery.min.js': 'jquery/dist/jquery.min.js',
+          'js/jquery-1x.min.js': 'jquery-1x/dist/jquery.min.js',
+          'js/modernizr.js': 'modernizr/modernizr.js',
+          'js/respond-proxy.html': 'respond-minmax/cross-domain/respond-proxy.html',
+          'js/respond.min.js': 'respond-minmax/dest/respond.min.js',
+          'js/respond.proxy.gif': 'respond-minmax/cross-domain/respond.proxy.gif',
+          'js/respond.proxy.js': 'respond-minmax/cross-domain/respond.proxy.js'
+        }
       }
     }
   });
@@ -460,7 +501,8 @@ module.exports = function (grunt) {
   grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
   grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
   grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
-  grunt.registerTask('docs', ['docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-customizer']);
+  grunt.registerTask('bower-docs', ['bower-install-simple:docs', 'bowercopy:docs']);
+  grunt.registerTask('docs', ['docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'bower-docs', 'build-customizer']);
 
   // Task for updating the cached npm packages used by the Travis build (which are controlled by test-infra/npm-shrinkwrap.json).
   // This task should be run and the updated file should be committed whenever Bootstrap's dependencies change.

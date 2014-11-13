@@ -6335,17 +6335,26 @@ button.close {
     display: none !important;
   }
 }
-input[type="file"].btn-file {
+input[type="file"].btn-fileinput {
   width: 0;
   height: 0;
   font-size: 0;
 }
-input[type="file"].btn-file + label {
-  padding-right: 24px;
+input[type="file"].btn-fileinput,
+input[type="file"].btn-fileinput :focus {
+  outline: none !important;
+}
+input[type="file"].btn-fileinput + label {
   text-align: left;
   white-space: normal;
 }
-input[type="file"].btn-file + label + span {
+input[type="file"].btn-fileinput + label + span {
+  display: none;
+}
+input[type="file"].btn-fileinput + label.removable {
+  padding-right: 24px;
+}
+input[type="file"].btn-fileinput + label.removable + span {
   z-index: 2;
   display: inline-block;
   margin-left: -18px;
@@ -6354,7 +6363,7 @@ input[type="file"].btn-file + label + span {
   color: #777;
   cursor: pointer;
 }
-input[type="file"].btn-file + label + span:hover {
+input[type="file"].btn-fileinput + label.removable + span:hover {
   color: #a94442;
 }
 @media (min-width: 1px) {

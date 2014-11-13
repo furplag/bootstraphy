@@ -2,23 +2,31 @@
 // Bootstraphy.fileinput
 // --------------------------------------------------
 
-input[type="file"].btn-file {
+input[type="file"].btn-fileinput {
   width: 0;
   height: 0;
   font-size: 0;
+  &,
+  :focus {
+    outline: none !important;
+  }
   +label {
-    padding-right: (@padding-base-horizontal * 2);
     text-align: left;
     white-space: normal;
     +span {
-      z-index: 2;
-      display: inline-block;
-      margin-left: floor((@padding-base-horizontal * -1.5));
-      font-size: @font-size-large;
-      font-weight: 700;
-      color: @gray-light;
-      cursor: pointer;
-      &:hover {color: @state-danger-text;
+      display: none;
+    }
+    &.removable {
+      padding-right: (@padding-base-horizontal * 2);
+      +span {
+        z-index: 2;
+        display: inline-block;
+        margin-left: floor((@padding-base-horizontal * -1.5));
+        font-size: @font-size-large;
+        font-weight: 700;
+        color: @gray-light;
+        cursor: pointer;
+        &:hover {color: @state-danger-text;}
       }
     }
   }
