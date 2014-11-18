@@ -187,5 +187,27 @@
       }
     }
     input[type="radio"].flat + span {border-radius: 50%;}
+    .input-group-lg & {
+      input[type="radio"].flat +span,
+      input[type="checkbox"].flat +span {
+        width: 18px;
+        height: 18px;
+        margin-right: -3px;
+        margin-bottom: -3px;
+        margin-left: -15px;
+        border-width: 3px;
+      }
+      input[type="radio"].flat:checked +span,
+      input[type="checkbox"].flat:checked +span {
+        border-width: 9px;
+      }
+    }
+    .input-group-sm & {
+      input[type="radio"].flat +span,
+      input[type="checkbox"].flat +span {
+        margin-top: 2px;
+        margin-bottom: -2px;
+      }
+    }
   }
 }

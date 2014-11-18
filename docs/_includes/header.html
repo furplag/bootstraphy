@@ -1,14 +1,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="msapplication-TileColor" content="#f18d05">
-<meta name="msapplication-TileImage" content="/favicon-144x.png">
+<meta name="msapplication-TileImage" content="../assets/icon/">
 
 <title>
   {% if page.layout == "home" %}
     {{ page.title }}
   {% else %}
-    {{ page.title }} &middot; Bootstrap
+    {{ page.title }} &middot; {{site.name}}
   {% endif %}
 </title>
 
@@ -40,9 +40,9 @@
 <![endif]-->
 
 <!-- Favicons -->
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn.furplag-was.me/favicon/favicon-152x.png">
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn.furplag-was.me/favicon/favicon-120x.png">
-<link rel="icon" href="https://cdn.furplag-was.me/favicon/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/icon/favicon-152x.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/icon/favicon-120x.png">
+<link rel="icon" href="../assets/icon/favicon.ico">
 
 <script>
 (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -51,5 +51,5 @@
   e.src='//www.google-analytics.com/analytics.js';
   r.parentNode.insertBefore(e,r)}(window,document,'script','ga')
 );
-ga('create', 'UA-32646527-1', 'furplag.jp');ga('send','pageview');
+ga('create', 'UA-32646527-1', 'furplag-was.me');ga('send','pageview');
 </script>

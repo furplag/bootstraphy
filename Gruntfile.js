@@ -126,6 +126,7 @@ module.exports = function (grunt) {
 
           'js/bootstraphy.normalize.js',
           'js/bootstraphy.fileinput.js',
+          'js/bootstraphy.select-dropdown.js',
           'js/bootstraphy.toggle.js'
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
@@ -414,7 +415,11 @@ module.exports = function (grunt) {
           'js/webfont.js': 'components-webfontloader/webfont.js',
           'js/html5shiv.min.js': 'html5shiv/dist/html5shiv.min.js',
           'js/jquery.min.js': 'jquery/dist/jquery.min.js',
-          'js/jquery-1x.min.js': 'jquery-1x/dist/jquery.min.js',
+          'js/jquery.min.map': 'jquery/dist/jquery.min.map',
+          'js/jquery.js': 'jquery/dist/jquery.js',
+          'js/jquery-1x/jquery.min.js': 'jquery-1x/dist/jquery.min.js',
+          'js/jquery-1x/jquery.min.map': 'jquery-1x/dist/jquery.min.map',
+          'js/jquery-1x/jquery.js': 'jquery-1x/dist/jquery.js',
           'js/modernizr.js': 'modernizr/modernizr.js',
           'js/respond-proxy.html': 'respond-minmax/cross-domain/respond-proxy.html',
           'js/respond.min.js': 'respond-minmax/dest/respond.min.js',

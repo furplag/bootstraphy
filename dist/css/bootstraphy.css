@@ -1,5 +1,5 @@
 /*!
- * bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
+ * Bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
  * Copyright 2014 Furplag
  * Licensed under MIT (https://github.com/furplag/bootstraphy/blob/master/LICENSE)
  * customized Bootstrap for me.
@@ -6335,36 +6335,198 @@ button.close {
     display: none !important;
   }
 }
-input[type="file"].btn-fileinput {
+.btn-fileinput input[type="file"] {
+  display: none;
   width: 0;
   height: 0;
   font-size: 0;
 }
-input[type="file"].btn-fileinput,
-input[type="file"].btn-fileinput :focus {
+.btn-fileinput input[type="file"],
+.btn-fileinput input[type="file"] :focus {
   outline: none !important;
 }
-input[type="file"].btn-fileinput + label {
-  text-align: left;
-  white-space: normal;
-}
-input[type="file"].btn-fileinput + label + span {
+.btn-fileinput span.remover {
   display: none;
 }
-input[type="file"].btn-fileinput + label.removable {
-  padding-right: 24px;
-}
-input[type="file"].btn-fileinput + label.removable + span {
+.btn-fileinput.removable span.remover {
   z-index: 2;
   display: inline-block;
-  margin-left: -18px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #777;
+  padding-left: 12px;
+  color: inherit;
   cursor: pointer;
 }
-input[type="file"].btn-fileinput + label.removable + span:hover {
-  color: #a94442;
+.btn-fileinput.removable span.remover:hover {
+  color: inherit;
+}
+.container-flex {
+  max-width: 1170px;
+}
+@media (min-width: 1px) {
+  .container-flex {
+    width: auto;
+  }
+}
+.select-dropdown {
+  display: none;
+}
+.dropdown-toggle > .dropdown-label {
+  margin-right: 6px;
+}
+.dropdown-menu.default {
+  border-color: #333;
+}
+.dropdown-menu.default .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.dropdown-menu.default > li > a {
+  color: #333;
+}
+.dropdown-menu.default > li > a:hover,
+.dropdown-menu.default > li > a:focus {
+  color: #333;
+  text-decoration: none;
+  background-color: #8c8c8c;
+}
+.dropdown-menu.default > .active > a,
+.dropdown-menu.default > .active > a:hover,
+.dropdown-menu.default > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #333;
+  outline: 0;
+}
+.dropdown-menu.primary {
+  border-color: #428bca;
+}
+.dropdown-menu.primary .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #428bca;
+}
+.dropdown-menu.primary > li > a {
+  color: #428bca;
+}
+.dropdown-menu.primary > li > a:hover,
+.dropdown-menu.primary > li > a:focus {
+  color: #428bca;
+  text-decoration: none;
+  background-color: #cde1f1;
+}
+.dropdown-menu.primary > .active > a,
+.dropdown-menu.primary > .active > a:hover,
+.dropdown-menu.primary > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #428bca;
+  outline: 0;
+}
+.dropdown-menu.success {
+  border-color: #5cb85c;
+}
+.dropdown-menu.success .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #5cb85c;
+}
+.dropdown-menu.success > li > a {
+  color: #5cb85c;
+}
+.dropdown-menu.success > li > a:hover,
+.dropdown-menu.success > li > a:focus {
+  color: #5cb85c;
+  text-decoration: none;
+  background-color: #d8eed8;
+}
+.dropdown-menu.success > .active > a,
+.dropdown-menu.success > .active > a:hover,
+.dropdown-menu.success > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #5cb85c;
+  outline: 0;
+}
+.dropdown-menu.info {
+  border-color: #5bc0de;
+}
+.dropdown-menu.info .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #5bc0de;
+}
+.dropdown-menu.info > li > a {
+  color: #5bc0de;
+}
+.dropdown-menu.info > li > a:hover,
+.dropdown-menu.info > li > a:focus {
+  color: #5bc0de;
+  text-decoration: none;
+  background-color: #f0f9fc;
+}
+.dropdown-menu.info > .active > a,
+.dropdown-menu.info > .active > a:hover,
+.dropdown-menu.info > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #5bc0de;
+  outline: 0;
+}
+.dropdown-menu.warning {
+  border-color: #f0ad4e;
+}
+.dropdown-menu.warning .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #f0ad4e;
+}
+.dropdown-menu.warning > li > a {
+  color: #f0ad4e;
+}
+.dropdown-menu.warning > li > a:hover,
+.dropdown-menu.warning > li > a:focus {
+  color: #f0ad4e;
+  text-decoration: none;
+  background-color: #fef9f3;
+}
+.dropdown-menu.warning > .active > a,
+.dropdown-menu.warning > .active > a:hover,
+.dropdown-menu.warning > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #f0ad4e;
+  outline: 0;
+}
+.dropdown-menu.danger {
+  border-color: #d9534f;
+}
+.dropdown-menu.danger .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #d9534f;
+}
+.dropdown-menu.danger > li > a {
+  color: #d9534f;
+}
+.dropdown-menu.danger > li > a:hover,
+.dropdown-menu.danger > li > a:focus {
+  color: #d9534f;
+  text-decoration: none;
+  background-color: #f9e2e2;
+}
+.dropdown-menu.danger > .active > a,
+.dropdown-menu.danger > .active > a:hover,
+.dropdown-menu.danger > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #d9534f;
+  outline: 0;
 }
 @media (min-width: 1px) {
   .radio.flat,
@@ -6956,6 +7118,24 @@ input[type="file"].btn-fileinput + label.removable + span:hover {
   .input-group-addon input[type="radio"].flat + span {
     border-radius: 50%;
   }
+  .input-group-lg .input-group-addon input[type="radio"].flat + span,
+  .input-group-lg .input-group-addon input[type="checkbox"].flat + span {
+    width: 18px;
+    height: 18px;
+    margin-right: -3px;
+    margin-bottom: -3px;
+    margin-left: -15px;
+    border-width: 3px;
+  }
+  .input-group-lg .input-group-addon input[type="radio"].flat:checked + span,
+  .input-group-lg .input-group-addon input[type="checkbox"].flat:checked + span {
+    border-width: 9px;
+  }
+  .input-group-sm .input-group-addon input[type="radio"].flat + span,
+  .input-group-sm .input-group-addon input[type="checkbox"].flat + span {
+    margin-top: 2px;
+    margin-bottom: -2px;
+  }
 }
 @media (min-width: 1px) and (min-width: 768px) {
   .form-inline .radio.switch input[type="checkbox"],
@@ -6973,4 +7153,4 @@ input[type="file"].btn-fileinput + label.removable + span:hover {
     left: 0;
   }
 }
-/*# sourceMappingURL=bootstraphy.css.map */
+/*# sourceMappingURL=Bootstraphy.css.map */

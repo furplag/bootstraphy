@@ -12,5 +12,5 @@
   'use strict';
 
   if ($('html').is('.lt-ie9'))  $('.flat, .switch').removeClass('flat switch')
-  $('.flat input[type="radio"], .flat input[type="checkbox"], .switch input[type="checkbox"], input-group-addon input[type="radio"].flat, input-group-addon input[type="checkbox"].flat').after('<span />')
+  $('.flat input[type="radio"], .flat input[type="checkbox"], .switch input[type="checkbox"], .input-group-addon input[type="radio"].flat, .input-group-addon input[type="checkbox"].flat').after('<span />')
 }(jQuery);
