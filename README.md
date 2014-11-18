@@ -8,6 +8,9 @@ bootstraphy
 
 customized [Bootstrap](//github.com/twbs/bootstrap) for me.
 
+[Demo](//furplag.github.io/bootstraphy)
+------
+
 Author
 ------
 Furplag
