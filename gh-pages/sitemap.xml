@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://furplag.github.io/bootstraphy/</loc>
+    <lastmod>2014-11-18T16:45:16+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  
+  <url>
+    <loc>https://furplag.github.io/bootstraphy/components/</loc>
+    <lastmod>2014-11-18T16:45:16+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://furplag.github.io/bootstraphy/css/</loc>
+    <lastmod>2014-11-18T16:45:16+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://furplag.github.io/bootstraphy/customize/</loc>
+    <lastmod>2014-11-18T16:45:16+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://furplag.github.io/bootstraphy/getting-started/</loc>
+    <lastmod>2014-11-18T16:45:16+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://furplag.github.io/bootstraphy/javascript/</loc>
+    <lastmod>2014-11-18T16:45:16+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+</urlset>
