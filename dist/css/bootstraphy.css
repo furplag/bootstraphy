@@ -6373,8 +6373,8 @@ button.close {
   width: 0;
   height: 0;
   font-size: 0;
-  filter: alpha(opacity=0);
-  opacity: 0;
+  filter: alpha(opacity=0) !important;
+  opacity: 0 !important;
 }
 .dropdown-toggle > .dropdown-label {
   margin-right: 6px;

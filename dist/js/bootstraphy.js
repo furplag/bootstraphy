@@ -2581,7 +2581,6 @@ var Sxxk = {};
       .wrap('<div class="btn-group" />')
       .before($button)
       .before($items)
-    if (!$('option', $this).size()) $this.hide()
   })
 }(jQuery);
 
