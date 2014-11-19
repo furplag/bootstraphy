@@ -2577,11 +2577,11 @@ var Sxxk = {};
       .append($('<span class="dropdown-label" />').html($selectedItems.size() > 1 ? ($selectedItems.size() + ' items') : $selectedItems.size() ? $($selectedItems.get(0)).html() : $this.data('label-default')))
       .append('<span class="caret" />')
 
-    if (!$('option', $this).size()) $items.append('<li style="display: none;" />')
     $this
       .wrap('<div class="btn-group" />')
       .before($button)
       .before($items)
+    if (!$('option', $this).size()) $this.hide()
   })
 }(jQuery);
 
