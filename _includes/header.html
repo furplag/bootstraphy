@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="msapplication-TileColor" content="#f18d05">
+<meta name="msapplication-TileImage" content="{{ "/assets/icon/favicon-144x.png" | prepend: site.baseurl }}">
+
+<title>
+  {% if page.layout == "home" %}
+    {{ page.title }}
+  {% else %}
+    {{ page.title }} &middot; {{site.name}}
+  {% endif %}
+</title>
+
+<!-- Bootstrap core CSS -->
+{% if site.github %}
+<link href="{{ "/dist/css/bootstraphy.min.css" | prepend: site.baseurl }}" rel="stylesheet">
+{% else %}
+<link href="{{ "/dist/css/bootstraphy.css" | prepend: site.baseurl }}" rel="stylesheet">
+{% endif %}
+
+<!-- Documentation extras -->
+{% if site.github %}
+<link href="{{ "/assets/css/docs.min.css" | prepend: site.baseurl }}" rel="stylesheet">
+{% else %}
+<link href="{{ "/assets/css/docs.css" | prepend: site.baseurl }}" rel="stylesheet">
+<link href="{{ "/assets/css/src/pygments-manni.css" | prepend: site.baseurl }}" rel="stylesheet">
+{% endif %}
+<script src="{{ "/libs/js/modernizr.js" | prepend: site.baseurl }}"></script>
+<!--[if lt IE 9]><script src="{{ "/assets/js/ie8-responsive-file-warning.js" | prepend: site.baseurl }}"></script><![endif]-->
+<script src="{{ "/assets/js/ie-emulation-modes-warning.js" | prepend: site.baseurl }}"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="{{ "/libs/js/html5shiv.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/libs/js/respond.min.js" | prepend: site.baseurl }}"></script>
+  <link href="{{ "/libs/js/respond-proxy.html" | prepend: site.baseurl }}" id="respond-proxy" rel="respond-proxy" />
+  <link href="{{ "/libs/js/respond.proxy.gif" | prepend: site.baseurl }}" id="respond-redirect" rel="respond-redirect" />
+  <script src="{{ "/libs/js/respond.proxy.js" | prepend: site.baseurl }}"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ "/assets/icon/favicon-152x.png" | prepend: site.baseurl }}">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ "/assets/icon/favicon-120x.png" | prepend: site.baseurl }}">
+<link rel="icon" href="{{ "/assets/icon/favicon.ico" | prepend: site.baseurl }}">
+
+<script>
+(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga')
+);
+ga('create', 'UA-32646527-1', 'furplag-was.me');ga('send','pageview');
+</script>

@@ -1,0 +1,46 @@
+<div class="bs-docs-section">
+  <h1 id="download" class="page-header">Download</h1>
+
+  <p class="lead">{{site.name}} (currently v{{ site.current_version }}) has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
+
+  <h3 id="download-bootstrap">{{site.name}}</h3>
+  <p>Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included.</p>
+  <p>
+    <a href="{{ site.download.dist }}" class="btn btn-lg btn-outline" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download compiled');">Download {{site.name}}</a>
+  </p>
+  <h3 id="download-source">Source code</h3>
+  <p>Source Less, JavaScript, and font files, along with our docs. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></p>
+  <p>
+    <a href="{{ site.download.source }}" class="btn btn-lg btn-outline" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+    <em style="margin-left: 1em;">or</em>
+    <a href="{{ site.repo }}" class="btn btn-lg btn-link" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Fork');">Clone or fork via GitHub</a>
+  </p>
+
+  <div class="bs-callout bs-callout-danger" id="sass-not-include">
+    <h4>No Sass supported</h4>
+    <p>Bootstraphy <strong>NOT</strong> ported from Less to Sass.</p>
+  </div>
+
+  <h3 id="download-cdn">Bootstraphy CDN</h3>
+  <p>The folks over at <a href="https://www.cloudflare.com/">Cloudflare</a> graciously provide CDN support for Bootstraphy's CSS and JavaScript.</p>
+{% highlight html %}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="{{ site.cdn.css }}">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="{{ site.cdn.css_theme }}">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="{{ site.cdn.js }}"></script>
+{% endhighlight %}
+
+  <h3 id="download-bower">Install with Bower</h3>
+  <p>Install and manage Bootstrap's Less, CSS, JavaScript, and fonts using <a href="http://bower.io">Bower</a>.</p>
+  {% highlight bash %}$ bower install bootstraphy{% endhighlight %}
+
+  <div class="bs-callout bs-callout-warning" id="callout-less-compilation">
+    <h4>Compiling Bootstraphy's LESS files</h4>
+    <p>If you work with Bootstraphy's uncompiled source code, you need to compile the LESS files to produce usable CSS files. For compiling LESS files into CSS, we only officially support <a href="http://twitter.github.io/recess/">Recess</a>, which is Twitter's CSS hinter based on <a href="http://lesscss.org">less.js</a>.</p>
+  </div>
+
+</div>

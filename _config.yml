@@ -1,0 +1,17 @@
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+baseurl: /bootstraphy
+encoding: UTF-8
+name: Bootstraphy
+author: Furplag
+author_url: https://about.me/furplag
+current_version: 3.3.0
+repo: https://github.com/furplag/bootstraphy
+download:
+  source: https://github.com/furplag/bootstraphy/v3.3.0.zip
+  dist: https://github.com/furplag/bootstraphy/releases/download/v3.3.0/bootstrap-3.3.0-dist.zip
+  sass: https://github.com/furplag/bootstraphy/archive/v3.3.0.tar.gz
+cdn:
+  css: https://cdn.furplag-was.me/bootstraphy/3.3.0/css/bootstraphy.min.css
+  js: https://cdn.furplag-was.me/bootstraphy/3.3.0/js/bootstraphy.min.js
