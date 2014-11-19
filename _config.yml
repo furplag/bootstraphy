@@ -1,6 +1,7 @@
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
+pygments: true
 baseurl: /bootstraphy
 encoding: UTF-8
 name: Bootstraphy
