@@ -1,5 +1,5 @@
 /*!
- * Bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
+ * bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
  * Copyright 2014 Furplag
  * Licensed under MIT (https://github.com/furplag/bootstraphy/blob/master/LICENSE)
  * customized Bootstrap for me.
@@ -6336,10 +6336,12 @@ button.close {
   }
 }
 .btn-fileinput input[type="file"] {
-  display: none;
+  position: absolute;
   width: 0;
   height: 0;
   font-size: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
 }
 .btn-fileinput input[type="file"],
 .btn-fileinput input[type="file"] :focus {
@@ -6367,7 +6369,12 @@ button.close {
   }
 }
 .select-dropdown {
-  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
 }
 .dropdown-toggle > .dropdown-label {
   margin-right: 6px;
@@ -7153,4 +7160,4 @@ button.close {
     left: 0;
   }
 }
-/*# sourceMappingURL=Bootstraphy.css.map */
+/*# sourceMappingURL=bootstraphy.css.map */

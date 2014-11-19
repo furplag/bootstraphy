@@ -2520,35 +2520,33 @@ var Sxxk = {};
         .attr('data-option-index', this.index)
         .html($(this).html())
         .on('click', function () {
-          var $list = $(this).closest('ul')
-          var $select = $list.next('select')
-          var isMultiple = $list.data('limit') > 1
+          var isMultiple = $items.data('limit') > 1
           if ($(this).is(':disabled, .disabled')) return false
           if ($(this).parent().is(':disabled, .disabled')) return false
           if (!isMultiple && $(this).parent().is('.active')) return false
-          var $targetOption = $($('option', $select).get($(this).data('option-index')))
-          var $selectedOptions = $('option:selected', $select)
-          if (isMultiple && !$(this).parent().is('.active') && $selectedOptions.size() >= $list.data('limit')) return
+          var $targetOption = $($('option', $this).get($(this).data('option-index')))
+          var $selectedOptions = $('option:selected', $this)
+          if (isMultiple && !$(this).parent().is('.active') && $selectedOptions.size() >= $items.data('limit')) return
           if (!isMultiple) {
             $selectedOptions.prop('selected', false)
             $($targetOption).prop('selected', true)
-            $('li', $(this).closest('ul')).removeClass('active')
+            $('li', $items).removeClass('active')
             $(this).parent().addClass('active')
-            $('.dropdown-label', $list.prev('button')).html($targetOption.html())
+            $items.parent().find('button[data-toggle="dropdown"] .dropdown-label').html($targetOption.html())
           } else {
-            $('li', $list).tooltip('destroy')
+            $('li', $items).tooltip('destroy')
             if ($targetOption.is(':selected')) {
               $($targetOption).prop('selected', false)
               $(this).parent().removeClass('active')
-              $selectedOptions = $('option:selected', $select)
+              $selectedOptions = $('option:selected', $this)
             } else {
               $($targetOption).prop('selected', true)
               $(this).parent().addClass('active')
-              $selectedOptions = $('option:selected', $select)
+              $selectedOptions = $('option:selected', $this)
             }
-            $('.dropdown-label', $list.prev('button')).html($selectedOptions.size() > 1 ? ($selectedOptions.size() + ' items') : $selectedOptions.size() ? $($selectedOptions.get(0)).html() : $select.data('label-default'))
-            if ($selectedOptions.size() >= $list.data('limit')) {
-              $('li:not(.dropdown-header, .active, .disabled)', $list).tooltip()
+            $items.parent().find('button[data-toggle="dropdown"] .dropdown-label').html($selectedOptions.size() > 1 ? ($selectedOptions.size() + ' items') : $selectedOptions.size() ? $($selectedOptions.get(0)).html() : $this.data('label-default'))
+            if ($selectedOptions.size() >= $items.data('limit')) {
+              $('li:not(.dropdown-header, .active, .disabled)', $items).tooltip()
             }
           }
         })
