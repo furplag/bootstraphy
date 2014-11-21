@@ -6368,6 +6368,16 @@ button.close {
     width: auto;
   }
 }
+.input-group-lg .input-group-addon {
+  height: 44px !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.input-group-sm .input-group-addon {
+  height: 28px !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .select-dropdown {
   position: absolute;
   width: 0;
@@ -7140,7 +7150,6 @@ button.close {
   }
   .input-group-sm .input-group-addon input[type="radio"].flat + span,
   .input-group-sm .input-group-addon input[type="checkbox"].flat + span {
-    margin-top: 2px;
     margin-bottom: -2px;
   }
 }
