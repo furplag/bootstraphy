@@ -4,10 +4,12 @@
 
 .btn-fileinput {
   input[type="file"] {
-    display: none;
+//    display: none;
+    position: absolute;
     width: 0;
     height: 0;
     font-size: 0;
+    .opacity(0);
     &,
     :focus {
       outline: none !important;

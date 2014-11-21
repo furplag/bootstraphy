@@ -2,7 +2,12 @@
 // Bootstraphy.select-dropdown
 // --------------------------------------------------
 .select-dropdown {
-  display: none;
+//  display: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    .opacity-force(0);
 }
 .dropdown-toggle > .dropdown-label {
   margin-right: floor((@padding-base-horizontal / 2));

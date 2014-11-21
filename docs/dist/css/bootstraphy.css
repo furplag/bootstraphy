@@ -1,5 +1,5 @@
 /*!
- * Bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
+ * bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
  * Copyright 2014 Furplag
  * Licensed under MIT (https://github.com/furplag/bootstraphy/blob/master/LICENSE)
  * customized Bootstrap for me.
@@ -6336,10 +6336,12 @@ button.close {
   }
 }
 .btn-fileinput input[type="file"] {
-  display: none;
+  position: absolute;
   width: 0;
   height: 0;
   font-size: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
 }
 .btn-fileinput input[type="file"],
 .btn-fileinput input[type="file"] :focus {
@@ -6366,8 +6368,23 @@ button.close {
     width: auto;
   }
 }
+.input-group-lg .input-group-addon {
+  height: 44px !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.input-group-sm .input-group-addon {
+  height: 28px !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .select-dropdown {
-  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  filter: alpha(opacity=0) !important;
+  opacity: 0 !important;
 }
 .dropdown-toggle > .dropdown-label {
   margin-right: 6px;
@@ -7133,7 +7150,6 @@ button.close {
   }
   .input-group-sm .input-group-addon input[type="radio"].flat + span,
   .input-group-sm .input-group-addon input[type="checkbox"].flat + span {
-    margin-top: 2px;
     margin-bottom: -2px;
   }
 }
@@ -7153,4 +7169,4 @@ button.close {
     left: 0;
   }
 }
-/*# sourceMappingURL=Bootstraphy.css.map */
+/*# sourceMappingURL=bootstraphy.css.map */

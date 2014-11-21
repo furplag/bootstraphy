@@ -93,7 +93,6 @@
       var $this         = $(this)
       var $parent       = getParent($this)
       var relatedTarget = { relatedTarget: this }
-
       if (!$parent.hasClass('open')) return
 
       $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))

@@ -1,5 +1,5 @@
 /*!
- * Bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
+ * bootstraphy v3.3.0 (https://github.com/furplag/bootstraphy/)
  * Copyright 2014 Furplag
  * Licensed under MIT (https://github.com/furplag/bootstraphy/blob/master/LICENSE)
  * customized Bootstrap for me.
@@ -837,7 +837,6 @@ if (typeof jQuery === 'undefined') {
       var $this         = $(this)
       var $parent       = getParent($this)
       var relatedTarget = { relatedTarget: this }
-
       if (!$parent.hasClass('open')) return
 
       $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
@@ -2496,7 +2495,7 @@ var Sxxk = {};
 
   $('select.select-dropdown').each(function (i) {
     var $this = $(this)
-    var labelDefault = $this.data('label-default') ? $this.data('label-default') : 'no Item selected'
+    if (!$this.data('label-default')) $this.attr('data-label-default', 'no Item selected')
     if (!$this.prop('id')) $this.prop('id', 'bs-select-dropdown-' + i)
     var multiple = $this.is('[multiple]') && (!$this.data('options-max') || $this.data('options-max') > 1)
     var limit = multiple && $this.data('options-max') > 1 ? $this.data('options-max') : (multiple ? $('option', $this).size() : 1)
@@ -2504,6 +2503,7 @@ var Sxxk = {};
     var $items = $('<ul class="dropdown-menu" role="menu" />')
       .prop('id', $this.prop('id') + '-menu')
       .prop('aria-labelledby', $this.prop('id') + '-btn')
+      .attr('data-limit', limit)
       .addClass($this.is('.primary, .btn-primary') ? 'primary' : $this.is('.success, .btn-success') ? 'success' : $this.is('.info, .btn-info') ? 'info' : $this.is('.warning, .btn-warning') ? 'warning' : $this.is('.danger, .btn-danger') ? 'danger' : $this.is('.link, .btn-link') ? '' : 'default')
 
     $('optgroup:disabled option', $this)
@@ -2520,31 +2520,34 @@ var Sxxk = {};
         .attr('data-option-index', this.index)
         .html($(this).html())
         .on('click', function () {
+          var isMultiple = $items.data('limit') > 1
           if ($(this).is(':disabled, .disabled')) return false
           if ($(this).parent().is(':disabled, .disabled')) return false
-          if (!multiple && $(this).parent().is('active')) return false
-          if ($(this).closest('ul').prev('button').is(':disabled, .disabled')) return false
+          if (!isMultiple && $(this).parent().is('.active')) return false
           var $targetOption = $($('option', $this).get($(this).data('option-index')))
           var $selectedOptions = $('option:selected', $this)
-          if (!multiple) {
-            $('option', $this).prop('selected', '')
+          if (isMultiple && !$(this).parent().is('.active') && $selectedOptions.size() >= $items.data('limit')) return
+          if (!isMultiple) {
+            $selectedOptions.prop('selected', false)
             $($targetOption).prop('selected', true)
-            $('li', $(this).closest('ul')).removeClass('active')
+            $('li', $items).removeClass('active')
             $(this).parent().addClass('active')
-            $('.dropdown-label', $(this).closest('ul').prev('button')).html($targetOption.html())
+            $items.parent().find('button[data-toggle="dropdown"] .dropdown-label').html($targetOption.html())
           } else {
-            $('li', $(this).closest('ul')).tooltip('destroy');
+            $('li', $items).tooltip('destroy')
             if ($targetOption.is(':selected')) {
               $($targetOption).prop('selected', false)
               $(this).parent().removeClass('active')
               $selectedOptions = $('option:selected', $this)
-            } else if ($selectedOptions.size() < limit) {
+            } else {
               $($targetOption).prop('selected', true)
               $(this).parent().addClass('active')
               $selectedOptions = $('option:selected', $this)
             }
-            $('.dropdown-label', $(this).closest('ul').prev('button')).html($selectedOptions.size() > 1 ? ($selectedOptions.size() + ' items') : $selectedOptions.size() ? $($selectedOptions.get(0)).html() : labelDefault)
-            if ($selectedOptions.size() == limit) $('li:not(.dropdown-header, .active, :disabled, .disabled)', $(this).closest('ul')).tooltip()
+            $items.parent().find('button[data-toggle="dropdown"] .dropdown-label').html($selectedOptions.size() > 1 ? ($selectedOptions.size() + ' items') : $selectedOptions.size() ? $($selectedOptions.get(0)).html() : $this.data('label-default'))
+            if ($selectedOptions.size() >= $items.data('limit')) {
+              $('li:not(.dropdown-header, .active, .disabled)', $items).tooltip()
+            }
           }
         })
       var $item = $('<li role="presentation" />')
@@ -2552,7 +2555,7 @@ var Sxxk = {};
         .addClass($(this).is(':selected') ? 'active' : $(this).is(':disabled, .disabled') ? 'disabled' : '')
         .attr('data-toggle', 'tooltip')
         .attr('data-container', 'body')
-        .attr('data-trigger', 'click hover')
+        .attr('data-trigger', 'hover')
         .attr('data-placement', 'right')
         .attr('data-title', 'LIMIT: up to ' + limit)
       if (multiple && $selectedItems.size() == limit && !$item.is('.active, .disabled')) $item.tooltip()
@@ -2571,7 +2574,7 @@ var Sxxk = {};
       .addClass($this.is(':disabled, .disabled') || !$('option', $this).size() ? 'disabled' : '')
       .addClass($this.is('.input-lg, .btn-lg, .lg') ? 'btn-lg' : $this.is('.input-sm, .btn-sm, .sm') ? 'btn-sm' : $this.is('.input-xs, .btn-xs, .xs') ? 'btn-xs' : '')
       .addClass($this.is('.primary, .btn-primary') ? 'btn-primary' : $this.is('.success, .btn-success') ? 'btn-success' : $this.is('.info, .btn-info') ? 'btn-info' : $this.is('.warning, .btn-warning') ? 'btn-warning' : $this.is('.danger, .btn-danger') ? 'btn-danger' : $this.is('.link, .btn-link') ? 'btn-link' : 'btn-default')
-      .append($('<span class="dropdown-label" />').html($selectedItems.size() > 1 ? ($selectedItems.size() + ' items') : $selectedItems.size() ? $($selectedItems.get(0)).html() : labelDefault))
+      .append($('<span class="dropdown-label" />').html($selectedItems.size() > 1 ? ($selectedItems.size() + ' items') : $selectedItems.size() ? $($selectedItems.get(0)).html() : $this.data('label-default')))
       .append('<span class="caret" />')
 
     $this
@@ -2597,3 +2600,21 @@ var Sxxk = {};
   if ($('html').is('.lt-ie9'))  $('.flat, .switch').removeClass('flat switch')
   $('.flat input[type="radio"], .flat input[type="checkbox"], .switch input[type="checkbox"], .input-group-addon input[type="radio"].flat, .input-group-addon input[type="checkbox"].flat').after('<span />')
 }(jQuery);
+
++function ($) {
+  'use strict';
+
+  var Tagosaku = function (element, options, e) {
+    if (e) {
+      e.stopPropagation()
+      e.preventDefault()
+    }
+    this.$element = $(element)
+    this.options = options
+    this.init()
+  }
+  Tagosaku.VERSION = '3.3.0'
+  Tagosaku.DEFAULTS = {
+      style: ''
+  }
+}(jQuery)

@@ -204,9 +204,11 @@
       <select class="form-control select-dropdown" multiple data-options-max="3" data-label-default="pick 3 items">
         <option>select</option>
         <option>[multiple]</option>
-        <option>has</option>
-        <option>some</option>
-        <option>attributes</option>
+        <optgroup label="test">
+          <option>has</option>
+          <option>some</option>
+          <option>attributes</option>
+        </optgroup>
       </select>
     </form>
   </div><!-- /.bs-example -->
@@ -269,8 +271,10 @@
       </select>
       <select class="form-control select-dropdown link">
         <option>Link</option>
+<optgroup label="test">
         <option>2</option>
         <option>3 </option>
+</optgroup>
       </select>
     </form>
   </div><!-- /.bs-example -->

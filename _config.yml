@@ -4,6 +4,7 @@ highlighter: rouge
 
 # Permalinks
 permalink: pretty
+pygments: true
 
 # Server
 source: docs
